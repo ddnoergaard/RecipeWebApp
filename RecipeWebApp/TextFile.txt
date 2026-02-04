@@ -14,3 +14,13 @@ Neutrals:
 Dark Text: #2D3142 (Charcoal) - main text, headers
 Light Text: #6B7280 (Warm Gray) - secondary text, descriptions
 Borders: #E5E7EB (Light Gray) - subtle dividers
+
+//04/02/2024
+Tilføjet få modeller
+Sat DB op med localDB og SqlServer
+Lavet få Models
+Sat en bette side op
+
+- Issues:
+Pt. Bruger vi ikke async og await, hvilket måske kan skabe problemer.
+Tjek om det skaber problemet ift. Database use, når vi bruger den som Scoped.
