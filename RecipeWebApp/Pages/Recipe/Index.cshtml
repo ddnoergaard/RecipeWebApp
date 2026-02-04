@@ -1,0 +1,33 @@
+﻿@page
+@using RecipeWebApp.Models;
+@model RecipeWebApp.Pages.Recipe.IndexModel
+@{
+}
+
+<main>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>PrepTimeMinutes</th>
+                <th>CookTimeMinutes</th>
+                <th>Servings</th>
+                <th>Difficulty</th>
+                <th>CreatedAt</th>
+            </tr>
+        <thead/>
+        <tbody>
+                @foreach(Recipe r in Model.Recipes)
+                {
+                    <td>@r.Name</td>
+                    <td>@r.Description</td>
+                    <td>@r.PrepTimeMinutes</td>
+                    <td>@r.CookTimeMinutes</td>
+                    <td>@r.Servings</td>
+                    <td>@r.Difficulty</td>
+                    <td>@r.CreatedAt</td>
+                }
+        </tbody>
+    </table>
+</main>

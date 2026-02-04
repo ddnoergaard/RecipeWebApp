@@ -1,0 +1,16 @@
+﻿Primary Colors:
+
+Primary: #E07A5F (Warm Terracotta) - main buttons, links, important actions
+Background: #FDFCF9 (Warm Off-White) - main background, keeps it clean but not stark
+Surface: #FFFFFF (Pure White) - cards, recipe containers
+
+Secondary/Accent:
+
+Accent: #81B29A (Soft Sage Green) - success states, fresh ingredient tags
+Secondary: #F4A261 (Golden Orange) - highlights, hover states, warm touches
+
+Neutrals:
+
+Dark Text: #2D3142 (Charcoal) - main text, headers
+Light Text: #6B7280 (Warm Gray) - secondary text, descriptions
+Borders: #E5E7EB (Light Gray) - subtle dividers
