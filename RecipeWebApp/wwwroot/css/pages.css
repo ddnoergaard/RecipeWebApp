@@ -1,0 +1,128 @@
+﻿
+/* MAIN START */
+.main-hero-container {
+    display: flex;
+    flex-shrink: 1;
+    flex-grow: 1;
+    justify-content: center; /* Add this */
+    align-items: center;
+    gap: 20rem;
+    margin: 15rem 10rem 15rem 10rem;
+}
+
+.main-hero-left-col {
+    display: flex;
+    flex-shrink: 1;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main-hero-left-button-container {
+    display: flex;
+    flex-shrink: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    margin: 1rem;
+}
+
+.btn {
+    width: 8.5rem;
+    height: 2.2rem;
+    border-radius: 1rem;
+    background-color: var(--accent-sage-green);
+    font-size: 1.1rem;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #74a08b;
+    }
+
+@media (max-width: 1800px) {
+    .main-hero-container {
+        gap: 10rem;
+    }
+}
+
+@media (max-width: 1300px) {
+    .main-right-col {
+        display: none;
+    }
+
+    .main-hero-container {
+        margin: 0;
+        padding-top: 5rem;
+    }
+
+    .main-hero-left-col {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .main-hero-left-button-container {
+        gap: 3rem;
+    }
+}
+
+/* BROWSE */
+.browse-main-section-container {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    flex-grow: 1;
+    justify-content: center; /* Add this */
+    align-items: start;
+    gap: 2rem;
+    margin: 5rem 60rem 5rem 60rem;
+}
+
+.browse-main-section-search {
+    width: 100%;
+    gap: 2rem;
+}
+
+.browse-main-section-search > form {
+    display: grid;
+    grid-template-columns: 5fr 3fr 1fr;
+}
+
+.browse-search-input {
+    width: 90%;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    padding-left: 1rem;
+}
+
+.browse-search-options-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 2fr;
+    text-align: center;
+    gap: 1rem;
+}
+
+.browse-search-options-container > select {
+    border: none;
+    width: 75%;
+}
+
+.browse-search-option-container > select > option {
+    border-radius: 0.5rem;
+}
+
+.browse-search-btn-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.browse-search-btn-container > button {
+    width: 8.5rem;
+    height: 100%;
+    background-color: var(--accent-sage-green);
+    border-radius: 1rem;
+    font-size: 1.1rem;
+}

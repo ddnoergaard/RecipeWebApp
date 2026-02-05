@@ -1,0 +1,33 @@
+﻿@page
+@model RecipeWebApp.Pages.Recipe.BrowseModel
+@{
+}
+
+<section class="browse-main-section-container">
+    <section class="browse-main-section-intro">
+        <h1>Browse Recepies</h1>
+        <p>Looking for dinner inspiration? <br><br>Browse our full recipe collection and find something perfect for tonight, or plan ahead for the whole week.</p>
+    </section>
+    <section class="browse-main-section-search">
+        <form action="post">
+            <div class="browse-search-input-container">
+                <input class="browse-search-input" asp-for="@Model.SearchQuery" placeholder="Search...">
+            </div>
+            <div class="browse-search-options-container">
+                <label for="options">Choose a difficulty:</label>
+                <select name="options" id="options">
+                    <option value="none">None</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="easy">Easy</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="hard">Hard</option>
+                    <option value="masterchef">MasterChef</option>
+                </select>
+            </div>
+            <div class="browse-search-btn-container">
+                <button type="submit" class="btn">Search</button>
+            </div>
+        </form>
+    </section>
+    <section class="browse-main-section-showcase"></section>
+</section>
