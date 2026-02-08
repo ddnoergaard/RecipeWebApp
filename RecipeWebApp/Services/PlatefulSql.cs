@@ -12,9 +12,15 @@ namespace RecipeWebApp.Services
         {
             _context = bikeStoreContext;
         }
-        public List<Recipe> GetRecipes()
+        public List<Recipe> GetRecipesToList()
         {
             return _context.recipes.ToList();
         }
+
+        public Recipe GetRecipeById(int id)
+        {
+            return _context.recipes.Include(r => r.recipeSteps.OrderBy(s => s.StepCount)).Include(r => r.ingredients).FirstOrDefault(r => r.Id == id);
+        }
+
     }
 }

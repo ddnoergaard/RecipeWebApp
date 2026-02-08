@@ -4,6 +4,7 @@ namespace RecipeWebApp.Services
 {
     public interface IPlateful
     {
-        List<Recipe> GetRecipes();
+        List<Recipe> GetRecipesToList();
+        Recipe GetRecipeById(int id);
     }
 }

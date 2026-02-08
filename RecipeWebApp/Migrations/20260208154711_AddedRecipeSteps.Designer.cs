@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RecipeWebApp.Models;
 
@@ -11,9 +12,11 @@ using RecipeWebApp.Models;
 namespace RecipeWebApp.Migrations
 {
     [DbContext(typeof(PlatefulContext))]
-    partial class PlatefulContextModelSnapshot : ModelSnapshot
+    [Migration("20260208154711_AddedRecipeSteps")]
+    partial class AddedRecipeSteps
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

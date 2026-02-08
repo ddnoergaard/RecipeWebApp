@@ -7,7 +7,7 @@ namespace RecipeWebApp.Pages.Recipe
 {
     public class IndexModel : PageModel
     {
-        public List<Models.Recipe> Recipes;
+        public Models.Recipe Recipe { get; set; }
 
         private IPlateful _context;
         public IndexModel(IPlateful iPlateful)
@@ -15,9 +15,9 @@ namespace RecipeWebApp.Pages.Recipe
             _context = iPlateful;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int id)
         {
-            Recipes = _context.GetRecipes();
+            Recipe = _context.GetRecipeById(id);
             return Page();
         }
     }

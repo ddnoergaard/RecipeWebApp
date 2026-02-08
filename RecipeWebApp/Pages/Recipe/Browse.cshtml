@@ -1,4 +1,5 @@
 ﻿@page
+@using RecipeWebApp.Models;
 @model RecipeWebApp.Pages.Recipe.BrowseModel
 @{
 }
@@ -6,10 +7,10 @@
 <section class="browse-main-section-container">
     <section class="browse-main-section-intro">
         <h1>Browse Recepies</h1>
-        <p>Looking for dinner inspiration? <br><br>Browse our full recipe collection and find something perfect for tonight, or plan ahead for the whole week.</p>
+        <p>Looking for inspiration? <br><br>Browse our  recipe collection and find something perfect for breakfast, lunch, dinner and even dessert. <br><br>Save recipes and plan a head of time with an account. <br /><a asp-page="/create-account">Create an account <span class="text-underline">here</span></a></p>
     </section>
     <section class="browse-main-section-search">
-        <form action="post">
+        <form class="form-not-mobile" action="post">
             <div class="browse-search-input-container">
                 <input class="browse-search-input" asp-for="@Model.SearchQuery" placeholder="Search...">
             </div>
@@ -25,9 +26,42 @@
                 </select>
             </div>
             <div class="browse-search-btn-container">
-                <button type="submit" class="btn">Search</button>
+                <button type="submit">Search</button> 
             </div>
         </form>
     </section>
-    <section class="browse-main-section-showcase"></section>
+    <span class="browse-divider"></span>
+    <section class="browse-main-section-showcase">
+        @if(Model.recipes.Count > 0)
+        {
+            @foreach (Recipe recipe in Model.recipes)
+            {
+                <div class="recipe-card">
+                    <div class="recipe-card-img-container" style="background-image:url(@recipe.DisplayURL)">
+                        <div class="recipe-img-saves-container">
+                            <p class="recipe-saves-text">@recipe.NumberOfSaves</p>
+                            <img class="recipe-saves-img" src="/content/heart_yellow.png" alt="saves heart" />
+                        </div>
+                    </div>
+                    <div class="recipe-card-text-container">
+                        <p class="recipe-card-text-title">@recipe.Name</p>
+                        <p class="recipe-card-text-description line-clamp">@recipe.Description</p>
+                        <div class="recipe-card-text-last-cta">
+                            <p>@recipe.Difficulty</p>
+                            <a asp-page="/Recipe/Index" asp-route-id="@recipe.Id">View full recipe</a> 
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        @if(Model.recipes.Count == 0)
+        {
+            <style>
+                .browse-main-section-showcase {
+                    grid-template-columns: 1fr;
+                }
+            </style>
+            <p class="recipe-showcase-nonfound-msg">No recipes found</p>
+        }
+    </section>
 </section>

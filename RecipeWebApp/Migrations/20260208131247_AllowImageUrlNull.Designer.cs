@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RecipeWebApp.Models;
 
@@ -11,9 +12,11 @@ using RecipeWebApp.Models;
 namespace RecipeWebApp.Migrations
 {
     [DbContext(typeof(PlatefulContext))]
-    partial class PlatefulContextModelSnapshot : ModelSnapshot
+    [Migration("20260208131247_AllowImageUrlNull")]
+    partial class AllowImageUrlNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,35 +44,6 @@ namespace RecipeWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("categories");
-                });
-
-            modelBuilder.Entity("RecipeWebApp.Models.Ingredient", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<float>("Amount")
-                        .HasColumnType("real");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("RecipeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Unit")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RecipeId");
-
-                    b.ToTable("ingredients");
                 });
 
             modelBuilder.Entity("RecipeWebApp.Models.Recipe", b =>
@@ -108,9 +82,6 @@ namespace RecipeWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NumberOfSaves")
-                        .HasColumnType("int");
-
                     b.Property<int>("PrepTimeMinutes")
                         .HasColumnType("int");
 
@@ -124,38 +95,6 @@ namespace RecipeWebApp.Migrations
                     b.ToTable("recipes");
                 });
 
-            modelBuilder.Entity("RecipeWebApp.Models.RecipeStep", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("RecipeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StepCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("StepDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RecipeId");
-
-                    b.ToTable("recipeSteps");
-                });
-
-            modelBuilder.Entity("RecipeWebApp.Models.Ingredient", b =>
-                {
-                    b.HasOne("RecipeWebApp.Models.Recipe", null)
-                        .WithMany("ingredients")
-                        .HasForeignKey("RecipeId");
-                });
-
             modelBuilder.Entity("RecipeWebApp.Models.Recipe", b =>
                 {
                     b.HasOne("RecipeWebApp.Models.Category", null)
@@ -163,23 +102,9 @@ namespace RecipeWebApp.Migrations
                         .HasForeignKey("CategoryId");
                 });
 
-            modelBuilder.Entity("RecipeWebApp.Models.RecipeStep", b =>
-                {
-                    b.HasOne("RecipeWebApp.Models.Recipe", null)
-                        .WithMany("recipeSteps")
-                        .HasForeignKey("RecipeId");
-                });
-
             modelBuilder.Entity("RecipeWebApp.Models.Category", b =>
                 {
                     b.Navigation("recipes");
-                });
-
-            modelBuilder.Entity("RecipeWebApp.Models.Recipe", b =>
-                {
-                    b.Navigation("ingredients");
-
-                    b.Navigation("recipeSteps");
                 });
 #pragma warning restore 612, 618
         }

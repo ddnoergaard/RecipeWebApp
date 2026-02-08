@@ -1,33 +1,73 @@
-﻿@page
+﻿@page "{id:int}"
 @using RecipeWebApp.Models;
 @model RecipeWebApp.Pages.Recipe.IndexModel
 @{
 }
 
 <main>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>PrepTimeMinutes</th>
-                <th>CookTimeMinutes</th>
-                <th>Servings</th>
-                <th>Difficulty</th>
-                <th>CreatedAt</th>
-            </tr>
-        <thead/>
-        <tbody>
-                @foreach(Recipe r in Model.Recipes)
-                {
-                    <td>@r.Name</td>
-                    <td>@r.Description</td>
-                    <td>@r.PrepTimeMinutes</td>
-                    <td>@r.CookTimeMinutes</td>
-                    <td>@r.Servings</td>
-                    <td>@r.Difficulty</td>
-                    <td>@r.CreatedAt</td>
-                }
-        </tbody>
-    </table>
+    <section class="recipe-page-container">
+        <div class="top-image-container" style="background-image:url(@Model.Recipe.DisplayURL)"></div>
+        <div class="recipe-text-container">
+            <h1>@Model.Recipe.Name</h1>
+            <div class="ratings-container">
+                <p class="ratings-item">&#9733;</p>
+                <p class="ratings-item">&#9733;</p>
+                <p class="ratings-item">&#9734;</p>
+                <p class="ratings-item">&#9734;</p>
+                <p class="ratings-item">&#9734;</p>
+            </div>
+            <div></div>
+        </div>
+        <div class="description-container">
+            <p class="recipe-description">@Model.Recipe.Description</p>
+        </div>
+        <div class="ingredient-table-information-container">
+            <div class="ingredient-container">
+                <h2>Ingredients</h2>
+                <table>
+                    <tbody>
+                        @foreach(Ingredient ingredient in Model.Recipe.ingredients)
+                        {
+                            <tr>
+                                <td>@ingredient.Name</td>
+                                <td>@ingredient.Amount @ingredient.Unit</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="information-container-container">
+                <div class="information-header-container"><h2>Information</h2></div>
+                <div class="information-container">
+                    <div>
+                        <h3>Prep time</h3>
+                        <p>@Model.Recipe.PrepTimeMinutes min</p>
+                    </div>
+                    <div>
+                        <h3>Cook time</h3>
+                        <p>@Model.Recipe.CookTimeMinutes min</p>
+                    </div>
+                    <div>
+                        <h3>Servings</h3>
+                        <p>@Model.Recipe.Servings</p>
+                    </div>
+                    <div>
+                        <h3>Country of Origin</h3>
+                        <p>@Model.Recipe.CountryOfOrigin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="direction-container">
+            <h2>Directions</h2>
+            @foreach(RecipeStep recipeStep in Model.Recipe.recipeSteps)
+            {
+                <div class="direction-steps">
+                    <h3>Step @recipeStep.StepCount</h3>
+                    <p>@recipeStep.StepDescription</p>
+                </div>
+            }
+            
+        </div>
+    </section>
 </main>
