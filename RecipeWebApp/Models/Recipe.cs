@@ -13,7 +13,7 @@
         public string DisplayURL => ImageUrl ?? "/content/recipe_images/placeholder_img.png";
         public DateTime CreatedAt { get; set; }
         public string CountryOfOrigin { get; set; }
-        public int NumberOfSaves { get; set; }
+        public int? NumberOfSaves { get; set; }
         public List<Ingredient> ingredients { get; set; }
         public List<RecipeStep> recipeSteps { get; set; }
         

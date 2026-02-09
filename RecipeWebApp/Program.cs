@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContextPool<PlatefulContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PlatefulConnectionString")));
+builder.Services.AddDbContextPool<PlatefulContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PlatefulSimplyMsSQLString")));
 builder.Services.AddScoped<IPlateful, PlatefulSql>();
 
 var app = builder.Build();

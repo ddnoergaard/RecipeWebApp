@@ -26,6 +26,12 @@ li {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+@media (max-width: 1800px) {
+    .navbar {
+        width: 75vw !important;
+    }
+}
+
 @media (max-width: 1300px) {
     .nav-list {
         display: none !important;
