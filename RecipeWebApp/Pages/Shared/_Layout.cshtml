@@ -14,7 +14,7 @@
 <body>
     <header>
         <nav class="navbar">
-            <a class="left-col" href="#">
+            <a class="left-col" asp-page="/Index">
                 <img class="nav-logo" src="/content/fork.png" alt="">
                 <p class="nav-logo-text">PLATEFUL</p>
             </a>
@@ -24,9 +24,10 @@
                     <li class="list-item"><a asp-area="" asp-page="/Recipe/Browse">Browse Recipes</a></li>
                     <li class="list-item"><a asp-area="" asp-page="/meal-planner">Meal Planner</a></li>
                     <li class="list-item"><a asp-area="" asp-page="/Blog">Blog</a></li>
+                    <li class="list-item"><a asp-area="" asp-page="/About">About</a></li>
                     <li class="navbar-divider"></li>
-                    <li class="list-item"><a asp-area="" asp-page="/Login/Index">Login</a></li>
-                    <li class="list-item"><a asp-area="" asp-page="/Create-account/Index">Create Account</a></li>
+                    <li class="list-item"><a asp-area="" asp-page="/Account/Login">Login</a></li>
+                    <li class="list-item"><a asp-area="" asp-page="/Account/Create_account">Create Account</a></li>
                 </ul>
                 <div class="mobile-burger">
                     <img src="/content/mobile-menu.png" alt="" onclick="ShowMobileNav()" id="mobile-menu-show">

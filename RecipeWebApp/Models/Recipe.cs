@@ -14,8 +14,13 @@
         public DateTime CreatedAt { get; set; }
         public string CountryOfOrigin { get; set; }
         public int? NumberOfSaves { get; set; }
+        public int? CategoryId { get; set; }
+
+        //Navigational props
+        public Category category { get; set; }
         public List<Ingredient> ingredients { get; set; }
         public List<RecipeStep> recipeSteps { get; set; }
+        
         
         public Recipe() {}
 

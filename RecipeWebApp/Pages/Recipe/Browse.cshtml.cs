@@ -45,8 +45,9 @@ namespace RecipeWebApp.Pages.Recipe
                 tempSearch = SearchQuery.ToLower();
             }
 
-            if (tempSearch.IsNullOrEmpty() && SelectOptions.IsNullOrEmpty())
+            if (tempSearch == "" && SelectOptions == "none")
             {
+                DisplayRecipe = recipes;
                 return Page();
             } else
             {
