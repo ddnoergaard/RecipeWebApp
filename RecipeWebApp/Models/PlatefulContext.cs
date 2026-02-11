@@ -7,9 +7,10 @@ namespace RecipeWebApp.Models;
 public partial class PlatefulContext : DbContext
 {
     public DbSet<Recipe> Recipes { get; set; }
-    //public DbSet<Category> categories { get; set; }
+    public DbSet<Category> Categories { get; set; }
     public DbSet<Ingredient> Ingredients { get; set; }
-    public DbSet<RecipeStep> recipeSteps { get; set; }
+    public DbSet<RecipeStep> RecipeSteps { get; set; }
+    public DbSet<User> Users { get; set; }
 
     public PlatefulContext(DbContextOptions<PlatefulContext> options)
         : base(options)

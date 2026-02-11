@@ -40,7 +40,7 @@ namespace RecipeWebApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("categories");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("RecipeWebApp.Models.Ingredient", b =>
@@ -69,7 +69,7 @@ namespace RecipeWebApp.Migrations
 
                     b.HasIndex("RecipeId");
 
-                    b.ToTable("ingredients");
+                    b.ToTable("Ingredients");
                 });
 
             modelBuilder.Entity("RecipeWebApp.Models.Recipe", b =>
@@ -108,7 +108,7 @@ namespace RecipeWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NumberOfSaves")
+                    b.Property<int?>("NumberOfSaves")
                         .HasColumnType("int");
 
                     b.Property<int>("PrepTimeMinutes")
@@ -121,7 +121,7 @@ namespace RecipeWebApp.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("recipes");
+                    b.ToTable("Recipes");
                 });
 
             modelBuilder.Entity("RecipeWebApp.Models.RecipeStep", b =>
@@ -146,7 +146,40 @@ namespace RecipeWebApp.Migrations
 
                     b.HasIndex("RecipeId");
 
-                    b.ToTable("recipeSteps");
+                    b.ToTable("RecipeSteps");
+                });
+
+            modelBuilder.Entity("RecipeWebApp.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("RecipeWebApp.Models.Ingredient", b =>
@@ -158,9 +191,11 @@ namespace RecipeWebApp.Migrations
 
             modelBuilder.Entity("RecipeWebApp.Models.Recipe", b =>
                 {
-                    b.HasOne("RecipeWebApp.Models.Category", null)
+                    b.HasOne("RecipeWebApp.Models.Category", "category")
                         .WithMany("recipes")
                         .HasForeignKey("CategoryId");
+
+                    b.Navigation("category");
                 });
 
             modelBuilder.Entity("RecipeWebApp.Models.RecipeStep", b =>

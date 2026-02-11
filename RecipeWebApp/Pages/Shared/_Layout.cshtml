@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using RecipeWebApp.Models;
+@using RecipeWebApp.Services;
+@{
+    User? user = new User();
+    user = SessionService.GetSessionUser();
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -26,8 +32,13 @@
                     <li class="list-item"><a asp-area="" asp-page="/Blog">Blog</a></li>
                     <li class="list-item"><a asp-area="" asp-page="/About">About</a></li>
                     <li class="navbar-divider"></li>
+                    @if(user.FirstName != "") 
+                    {
                     <li class="list-item"><a asp-area="" asp-page="/Account/Login">Login</a></li>
                     <li class="list-item"><a asp-area="" asp-page="/Account/Create_account">Create Account</a></li>
+                    } else {
+                    <a class="list-item" href="#">@user.FirstName &darr;</a>
+                    }
                 </ul>
                 <div class="mobile-burger">
                     <img src="/content/mobile-menu.png" alt="" onclick="ShowMobileNav()" id="mobile-menu-show">

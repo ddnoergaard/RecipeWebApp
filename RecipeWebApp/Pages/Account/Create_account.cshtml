@@ -1,4 +1,33 @@
 ﻿@page
 @model RecipeWebApp.Pages.Account.Create_accountModel
 @{
+    ViewData["Title"] = "Create Account";
 }
+
+<section class="login-main-section">
+    <div class="login-main-div">
+        <div class="login-header">
+            <h1>Create-Account</h1>
+        </div>
+        <form class="login-form" method="post">
+            <div class="name-input">
+                <input class="input-styling" asp-for="@Model.user.FirstName" type="text" placeholder="John">
+                <input class="input-styling" asp-for="@Model.user.LastName" type="text" placeholder="Doe">
+            </div>
+            <div class="phone-input">
+                <input class="input-styling" asp-for="@Model.user.Phone" type="text" placeholder="28781223">
+            </div>
+            <div class="email-input">
+                <input class="input-styling" asp-for="@Model.user.Email" type="text" placeholder="youremail@gmail.com">
+                <p style="color:red">@ViewData["email-error-message"]</p>
+            </div>
+            <div class="password-input">
+                <input class="input-styling" asp-for="@Model.user.Password" type="password" placeholder="Rofus123...">
+            </div>
+            <div class="login-submit-btn">
+                <button type="submit">Create Account</button>
+                <a asp-for="/Account/Login" id="create-account">Already have an account?</a>
+            </div>
+        </form>
+    </div>
+</section>
