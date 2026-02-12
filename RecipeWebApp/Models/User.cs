@@ -38,20 +38,7 @@ namespace RecipeWebApp.Models
             }
             set { _lastName = value; }
         }
-        public string Email {
-            get
-            {
-                if (SessionService.UserAuthenticate())
-                {
-                    return _email;
-                }
-                else
-                {
-                    return "-";
-                }
-            }
-            set { _email = value; }
-        }
+        public string Email { get; set; }
         public string Phone {
             get
             {
