@@ -53,20 +53,7 @@ namespace RecipeWebApp.Models
             }
             set { _phone = value; }
         }
-        public string Password {
-            get
-            {
-                if (SessionService.UserAuthenticate())
-                {
-                    return _password;
-                }
-                else
-                {
-                    return "-";
-                }
-            }
-            set { _password = value; }
-        }
+        public string Password { get; set; }
 
         public User()
         {

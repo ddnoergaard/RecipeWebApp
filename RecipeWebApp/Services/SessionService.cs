@@ -31,7 +31,7 @@ namespace RecipeWebApp.Services
 
         public static bool UserAuthenticate()
         {
-            if (_currentUser.Id == _loggedInUser.Id)
+            if (_currentUser.Id == _loggedInUser.Id && _currentUser.Id != 0 && _loggedInUser.Id != 0)
             {
                 return true;
             } else

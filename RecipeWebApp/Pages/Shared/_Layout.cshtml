@@ -1,8 +1,7 @@
 ﻿@using RecipeWebApp.Models;
 @using RecipeWebApp.Services;
 @{
-    User? user = new User();
-    user = SessionService.GetSessionUser();
+    bool loginStateCheck = SessionService.UserAuthenticate();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +31,12 @@
                     <li class="list-item"><a asp-area="" asp-page="/Blog">Blog</a></li>
                     <li class="list-item"><a asp-area="" asp-page="/About">About</a></li>
                     <li class="navbar-divider"></li>
-                    @if(user.FirstName != "") 
+                    @if(!loginStateCheck) 
                     {
                     <li class="list-item"><a asp-area="" asp-page="/Account/Login">Login</a></li>
                     <li class="list-item"><a asp-area="" asp-page="/Account/Create_account">Create Account</a></li>
                     } else {
-                    <a class="list-item" href="#">@user.FirstName &darr;</a>
+                    <a class="list-item" href="#">@SessionService.GetSessionUser().FirstName &darr;</a>
                     }
                 </ul>
                 <div class="mobile-burger">
