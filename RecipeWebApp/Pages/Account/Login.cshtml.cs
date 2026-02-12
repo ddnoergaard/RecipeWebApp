@@ -10,7 +10,6 @@ namespace RecipeWebApp.Pages.Account
         private readonly IUserService _userService;
         [BindProperty]
         public Models.User user { get; set; }
-
         public LoginModel(IUserService userService)
         {
             _userService = userService;
@@ -18,13 +17,18 @@ namespace RecipeWebApp.Pages.Account
 
         public void OnGet()
         {
+            user = new Models.User();
         }
 
         public IActionResult OnPost()
         {
-            _userService.Login(user);
-            return RedirectToPage("/User/Index");
+            if (_userService.Login(user))
+            {
+                Models.User tempUser = _userService.FindUserByEmail(user.Email);
+                return RedirectToPage("/App/Dashboard", new {id = tempUser.Id});
+            }
+            return Page();
+            
         }
-
     }
 }

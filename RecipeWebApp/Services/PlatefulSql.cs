@@ -43,5 +43,41 @@ namespace RecipeWebApp.Services
             return _context.Recipes.Include(r => r.recipeSteps.OrderBy(s => s.StepCount)).Include(r => r.ingredients).FirstOrDefault(r => r.Id == id);
         }
 
+        private IEnumerable<Recipe> FilterList(List<Recipe> listR, string filterOption)
+        {
+            List<Recipe> resultList = new List<Recipe>();
+            foreach (Recipe r in listR)
+            {
+                if (r.Difficulty.ToLower() == filterOption.ToLower())
+                {
+                    resultList.Add(r);
+                }
+            }
+            return resultList;
+        }
+
+        public  IEnumerable<Recipe> SearchByQuery(List<Recipe> listR, string searchQuery, string filterOption)
+        {
+            List<Recipe> resultList = new List<Recipe>();
+            if (searchQuery != "")
+            {
+                foreach (Recipe r in listR)
+                {
+                    string[] tempArray = r.Name.Split();
+                    foreach (string s in tempArray)
+                    {
+                        if (searchQuery.ToLower() == s.ToLower())
+                        {
+                            resultList.Add(r);
+                        }
+                    }
+                }
+            }
+            if (filterOption != "none")
+            {
+                return resultList = FilterList(resultList, filterOption).ToList();
+            }
+            return resultList;
+        }
     }
 }

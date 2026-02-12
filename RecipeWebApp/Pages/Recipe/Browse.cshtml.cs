@@ -51,37 +51,8 @@ namespace RecipeWebApp.Pages.Recipe
                 return Page();
             } else
             {
-                foreach (Models.Recipe r in recipes)
-                {
-                    if (!tempSearch.IsNullOrEmpty() && !SelectOptions.IsNullOrEmpty())
-                    {
-                        string[] tempArray = r.Name.Split();
-                        foreach (string s in tempArray)
-                        {
-                            if (tempSearch == s && SelectOptions.ToLower() == r.Difficulty.ToLower())
-                            {
-                                DisplayRecipe.Add(r);
-                            }
-                        }
-                    }
+                DisplayRecipe = _context.SearchByQuery(recipes, SearchQuery, SelectOptions).ToList();
 
-                    if (!tempSearch.IsNullOrEmpty())
-                    {
-                        string[] tempArray = r.Name.Split();
-                        foreach (string s in tempArray)
-                        {
-                            if (tempSearch == s.ToLower())
-                            {
-                                DisplayRecipe.Add(r);
-                            }
-                        }
-                    }
-
-                    if (SelectOptions != "none" && SelectOptions.ToLower() == r.Difficulty.ToLower())
-                    {
-                        DisplayRecipe.Add(r);
-                    }
-                }
                 if (DisplayRecipe.Count == 0)
                 {
                     ViewData["error-msg"] = "No recipies matched your search";

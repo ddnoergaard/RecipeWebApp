@@ -38,9 +38,19 @@ namespace RecipeWebApp.Services
             PasswordVerificationResult result = _passwordHasher.VerifyHashedPassword(user, getUser.Password, user.Password);
             if (result == PasswordVerificationResult.Success)
             {
-                SessionService.SetSessionUser(user);
+                SessionService.SetSessionUser(_context.Users.FirstOrDefault(u => u.Email == user.Email));
             }
             return result == PasswordVerificationResult.Success ? true : false;
+        }
+
+        public User FindUserById(int id)
+        {
+            return _context.Users.FirstOrDefault(u => u.Id == id);
+        }
+
+        public User FindUserByEmail(string email)
+        {
+            return _context.Users.FirstOrDefault(u => u.Email == email);
         }
 
     }

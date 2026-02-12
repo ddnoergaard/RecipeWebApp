@@ -1,4 +1,5 @@
-﻿using RecipeWebApp.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using RecipeWebApp.Models;
 
 namespace RecipeWebApp.Services
 {
@@ -6,5 +7,9 @@ namespace RecipeWebApp.Services
     {
         void CreateAccount(User user);
         bool Login(User user);
+
+        public User FindUserById(int id);
+
+        public User FindUserByEmail(string email);
     }
 }

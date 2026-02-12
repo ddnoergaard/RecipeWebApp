@@ -7,6 +7,18 @@ namespace RecipeWebApp.Services
     {
         private static User? _loggedInUser = new User();
 
+        private static User? _currentUser = new User();
+
+        public static void SetCurrentUser(User user)
+        {
+            _currentUser = user;
+        }
+
+        public static User GetCurrentUser()
+        {
+            return _currentUser;
+        }
+
         public static void SetSessionUser(User user)
         {
             _loggedInUser = user;
@@ -16,5 +28,17 @@ namespace RecipeWebApp.Services
         {
             return _loggedInUser;
         }
+
+        public static bool UserAuthenticate()
+        {
+            if (_currentUser.Id == _loggedInUser.Id)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
     }
 }

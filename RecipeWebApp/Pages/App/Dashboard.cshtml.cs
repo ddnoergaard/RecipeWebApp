@@ -9,7 +9,7 @@ namespace RecipeWebApp.Pages.User
     {
         private readonly PlatefulContext _context;
 
-        public Models.User user;
+        public Models.User user { get; set; }
 
         public IndexModel(PlatefulContext platefulContext)
         {
@@ -17,7 +17,9 @@ namespace RecipeWebApp.Pages.User
         }
         public void OnGet(int id)
         {
+            user = new Models.User();
             user = _context.Users.FirstOrDefault(u => u.Id == id);
+            SessionService.SetCurrentUser(user);
         }
     }
 }

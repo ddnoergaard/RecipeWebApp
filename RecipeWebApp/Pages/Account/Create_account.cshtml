@@ -4,13 +4,13 @@
     ViewData["Title"] = "Create Account";
 }
 
-<section class="login-main-section">
-    <div class="login-main-div">
-        <div class="login-header">
-            <h1>Create-Account</h1>
+<section class="create-main-section">
+    <div class="create-main-div">
+        <div class="create-account-header">
+            <h1>Create Account</h1>
         </div>
-        <form class="login-form" method="post">
-            <div class="name-input">
+        <form class="create-account-form" method="post">
+            <div class="create-name-input-container">
                 <input class="input-styling" asp-for="@Model.user.FirstName" type="text" placeholder="John">
                 <input class="input-styling" asp-for="@Model.user.LastName" type="text" placeholder="Doe">
             </div>
@@ -19,12 +19,12 @@
             </div>
             <div class="email-input">
                 <input class="input-styling" asp-for="@Model.user.Email" type="text" placeholder="youremail@gmail.com">
-                <p style="color:red">@ViewData["email-error-message"]</p>
+                <span style="color:red">@ViewData["email-error-message"]</span>
             </div>
             <div class="password-input">
                 <input class="input-styling" asp-for="@Model.user.Password" type="password" placeholder="Rofus123...">
             </div>
-            <div class="login-submit-btn">
+            <div class="create-account-submit-btn">
                 <button type="submit">Create Account</button>
                 <a asp-for="/Account/Login" id="create-account">Already have an account?</a>
             </div>
