@@ -121,7 +121,7 @@ namespace RecipeWebApp.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Recipes");
+                    b.ToTable("Recipe");
                 });
 
             modelBuilder.Entity("RecipeWebApp.Models.RecipeStep", b =>

@@ -12,8 +12,8 @@ using RecipeWebApp.Models;
 namespace RecipeWebApp.Migrations
 {
     [DbContext(typeof(PlatefulContext))]
-    [Migration("20260211200526_Baseline")]
-    partial class Baseline
+    [Migration("20260215164442_InitCreate")]
+    partial class InitCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -124,7 +124,7 @@ namespace RecipeWebApp.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Recipes");
+                    b.ToTable("Recipe");
                 });
 
             modelBuilder.Entity("RecipeWebApp.Models.RecipeStep", b =>

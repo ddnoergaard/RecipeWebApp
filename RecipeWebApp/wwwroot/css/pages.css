@@ -205,7 +205,7 @@
     }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 2000px) {
     .browse-main-section-showcase {
         grid-template-columns: repeat(3, 1fr) !important;
     }
@@ -592,4 +592,116 @@ tr:hover {
     padding-left: 1.5rem;
     outline: none;
     transition: 0.2s ease;
+}
+
+/* DASHBOARD */
+
+.dashboard-main-section {
+    height: 100vh;
+    width: 60vw;
+    margin: 5vw 20vw 0 20vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-main-div {
+    display: grid;
+    grid-template-rows: auto;
+    width: 100%;
+}
+
+.dashboard-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 5rem;
+    align-items: center;
+}
+
+.dashboard-header > p {
+    text-align: end;
+    font-size: 1.5rem;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 5rem;
+}
+
+.dashboard-sq-card {
+    width: 10vw;
+    height: 25vh;
+    background-color: white;
+    place-self: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+.large-number {
+    font-size: 8rem;
+    place-self: center;
+    margin: 0;
+}
+
+.large-number-description {
+    margin: 0
+}
+
+.dashboard-sq-card-long {
+    width: 30vw;
+    height: 25vh;
+    background-color: white;
+    place-self: center;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+.long-card-top-header {
+    display: grid;
+    width: 30vw;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+}
+
+.ts-recipe-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.todays-suggestion-header {
+    text-align: start;
+}
+
+.todays-suggestion-country {
+    text-align: end;
+}
+
+.ts-recipe-description {
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.ts-recipe-time-container {
+    display: flex;
+    gap: 5rem;
+}
+
+.ts-recipe-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/content/heart.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

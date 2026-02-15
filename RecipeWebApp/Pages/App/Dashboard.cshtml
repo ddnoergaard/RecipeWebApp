@@ -6,8 +6,35 @@
 <section class="dashboard-main-section">
     <div class="dashboard-main-div">
         <div class="dashboard-header">
-            <h1>@Model.user.FirstName</h1>
+            <h1>Goodmorning, @Model.user.FirstName</h1>
+            <p>Date/Month/Year</p>
         </div>
-        
+        <div class="dashboard-cards">
+            <div class="dashboard-sq-card">
+                <p class="large-number">0</p>
+                <p class="large-number-description">Recipes created</p>
+            </div>
+            <div class="dashboard-sq-card">
+                <p class="large-number">0</p>
+                <p class="large-number-description">Favorites</p>
+            </div>
+            <div class="dashboard-sq-card-long">
+                <div class="long-card-top-header">
+                    <p class="todays-suggestion-header">Todays suggestion:</p>
+                    <p class="todays-suggestion-country">Mexico</p>
+                </div>
+                <div class="ts-recipe-container">
+                    <div>
+                        <p class="ts-recipe-title">Spaghetti Cabonara</p>
+                        <p class="ts-recipe-description">A wonderfully spaghetti recipe from the heart of Itali. Creamy, fluffy and perfect for the </p>
+                        <div class="ts-recipe-time-container">
+                            <p class="ts-recipe-preptime">Prep time: 30 min</p>
+                            <p class="ts-recipe-cookingtime">Cooking time: 30 min</p>
+                        </div>
+                    </div>
+                    <div class="ts-recipe-image" style="background-image:url()></div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RecipeWebApp.Migrations
 {
     /// <inheritdoc />
-    public partial class Baseline : Migration
+    public partial class InitCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -43,7 +43,7 @@ namespace RecipeWebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Recipes",
+                name: "Recipe",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -62,9 +62,9 @@ namespace RecipeWebApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Recipes", x => x.Id);
+                    table.PrimaryKey("PK_Recipe", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Recipes_Categories_CategoryId",
+                        name: "FK_Recipe_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id");
@@ -85,9 +85,9 @@ namespace RecipeWebApp.Migrations
                 {
                     table.PrimaryKey("PK_Ingredients", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Ingredients_Recipes_RecipeId",
+                        name: "FK_Ingredients_Recipe_RecipeId",
                         column: x => x.RecipeId,
-                        principalTable: "Recipes",
+                        principalTable: "Recipe",
                         principalColumn: "Id");
                 });
 
@@ -105,9 +105,9 @@ namespace RecipeWebApp.Migrations
                 {
                     table.PrimaryKey("PK_RecipeSteps", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RecipeSteps_Recipes_RecipeId",
+                        name: "FK_RecipeSteps_Recipe_RecipeId",
                         column: x => x.RecipeId,
-                        principalTable: "Recipes",
+                        principalTable: "Recipe",
                         principalColumn: "Id");
                 });
 
@@ -117,8 +117,8 @@ namespace RecipeWebApp.Migrations
                 column: "RecipeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Recipes_CategoryId",
-                table: "Recipes",
+                name: "IX_Recipe_CategoryId",
+                table: "Recipe",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
@@ -140,7 +140,7 @@ namespace RecipeWebApp.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Recipes");
+                name: "Recipe");
 
             migrationBuilder.DropTable(
                 name: "Categories");

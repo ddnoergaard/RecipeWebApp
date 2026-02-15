@@ -9,11 +9,16 @@ namespace RecipeWebApp.Pages.User
     {
         private readonly PlatefulContext _context;
 
+        private readonly IRecipeService _recipeService;
+
         public Models.User user { get; set; }
 
-        public IndexModel(PlatefulContext platefulContext)
+        public Models.Recipe dailyRecipe { get; set; }
+
+        public IndexModel(PlatefulContext platefulContext, IRecipeService recipeS)
         {
             _context = platefulContext;
+            _recipeService = recipeS;
         }
         public void OnGet(int id)
         {
