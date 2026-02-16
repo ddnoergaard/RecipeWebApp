@@ -24,10 +24,6 @@ namespace RecipeWebApp.Services
 
                 var recipes = _context.Recipes.ToList();
 
-                if (recipes == null || recipes.Count == 0)
-                {
-                    throw new Exception("No recipes found in database!");
-                }
 
             } catch (Exception e)
             {

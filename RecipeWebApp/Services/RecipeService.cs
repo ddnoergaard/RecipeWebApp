@@ -13,12 +13,12 @@ namespace RecipeWebApp.Services
             _context = platefulContext;
         }
 
-        public void GetDailyRecipe()
+        public Recipe GetDailyRecipe()
         {
             List<Recipe> tempRecipes = _context.Recipes.ToList();
             Random rand = new Random();
             int randomNumber = rand.Next(0, tempRecipes.Count-1);
-            dailyRecipe = tempRecipes[randomNumber];
+            return dailyRecipe = tempRecipes[randomNumber];
         }
 
         //public void SetDailyRecipe()

@@ -11,48 +11,10 @@ namespace RecipeWebApp.Models
         private string _password;
 
         public int Id { get; set; }
-        public string FirstName
-        {
-            get { 
-                if (SessionService.UserAuthenticate())
-                    {
-                        return _firstName;
-                    } else
-                    {
-                        return "-";
-                    }
-                }
-            set { _lastName = value; }
-        }
-        public string LastName {
-            get
-            {
-                if (SessionService.UserAuthenticate())
-                {
-                    return _lastName;
-                }
-                else
-                {
-                    return "-";
-                }
-            }
-            set { _lastName = value; }
-        }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Email { get; set; }
-        public string Phone {
-            get
-            {
-                if (SessionService.UserAuthenticate())
-                {
-                    return _phone;
-                }
-                else
-                {
-                    return "-";
-                }
-            }
-            set { _phone = value; }
-        }
+        public string Phone {get; set; }
         public string Password { get; set; }
 
         public User()

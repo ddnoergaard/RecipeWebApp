@@ -4,6 +4,6 @@ namespace RecipeWebApp.Services
 {
     public interface IRecipeService
     {
-        void GetDailyRecipe();
+        Recipe GetDailyRecipe();
     }
 }

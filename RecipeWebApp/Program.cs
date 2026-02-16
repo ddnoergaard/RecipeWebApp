@@ -10,7 +10,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContextPool<PlatefulContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PlatefulSimplyMsSQLString")));
 builder.Services.AddScoped<IPlateful, PlatefulSql>();
 builder.Services.AddScoped<IUserService, UserService>();
-//builder.Services.AddSingleton<IRecipeService, RecipeService>();
+builder.Services.AddScoped<IRecipeService, RecipeService>();
 
 var app = builder.Build();
 
